@@ -270,13 +270,21 @@ public class IdolController {
 		
 		// 2. 요청처리
 		// ~
-		board.add(board);
-	
+		boards.add(board);
+	}
 	public List<Board> selectBoardList() {
 		
 		
 		return boards;
 	}
+	
+	public void findByBoardNo(int boardNo) {
+		boards.get(boardNo - 1);
+		// 글 삭제와 같은 기능이 구현될 경우 이러한 단순한 접근은 에러를 유발할 수 있으므로 다른 방법을 고려하는 것이 좋다.
+	
+	
 	}
+	
+	
 
 }
