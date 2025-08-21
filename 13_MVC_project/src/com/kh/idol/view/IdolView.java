@@ -1,8 +1,11 @@
 package com.kh.idol.view;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.kh.idol.controller.IdolController;
+import com.kh.idol.model.vo.Board;
+import com.kh.idol.model.vo.Idol;
 
 public class IdolView {
 
@@ -32,15 +35,15 @@ public class IdolView {
 			
 			switch(menuNo) {
 			case 1 : infoMenu(); break;
-			case 2 : break;
-			case 3 : break;
-			case 4 : break;
+			case 2 : signUp(); break;
+			case 3 : login(); break;
+			case 4 : boardMenu(); break; // 원래대로라면 게시판 역할을 담당하는 board 역시 별도의 클래스에 들어가주어야 할 내용. (ex) BoardMenu 클래스를 별도로 두는 등)
 			case 5 : break;
 			default : System.out.println("잘못된 입력입니다.");
 			
 			}
 			
-			private void infoMenu() {
+			public void infoMenu() {
 				System.out.println();
 				System.out.println("정보보기 서비스입니다.");
 				System.out.println("정보를 보기 원하시는 멤버를 선택해주세요.");
@@ -77,10 +80,39 @@ public class IdolView {
 					}
 					
 				}
-				
+				if(loginFan != null) {
+					
+					SYstem.out.print("게시글 게목을 입력해주세요 > ")				};
+					String boardTitle = sc
+							
 			}
 			
 		}
+		
+		private void selectBoardList() { 
+			System.out.println();
+			System.out.println("\n 전체 게시글 목록");
+			System.out.println();
+			
+			List<Board> boardList = ic.selectBoardList();
+			
+			if(boardList.isEmpty()) {
+				System.out.println("게시글이 아직 존재하지 않습니다.");
+			} else {
+				
+				for(Board board : boardList) {
+					System.out.print("글 번호 : " + board.getBoardNo() + "\t");
+					System.out.print("글 제목 : " + board.getBoardTitle() + "\t");
+					System.out.print("글 번호 : " + board.getUserId() + "\t");
+					System.out.print("글 번호 : " + board.getCreateDate());
+					System.out.println();
+								
+					
+					
+				}
+				
+				
+			}
 		
 	}
 	

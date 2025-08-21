@@ -1,6 +1,8 @@
 package com.kh.idol.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.kh.idol.model.vo.Board;
@@ -250,6 +252,31 @@ public class IdolController {
 		
 		
 	}
+	public void post(String boardTitle, String boardContent, String userId) {
+		
+		// 기존 boardNo보다 1 증가시킨 값과
+		// 사용자가 입력한 게시글 제목, 내용 값과
+		// 현재 로그인된 사용자의 아이디 값과
+		// 현재 게시글 작성 요청이 들어온 시간 값을 가지고
+		// Board 객체를 만들어서 Board 타입들이 들어가는 List의 요소로 추가
+		
+		// 1. 데이터 가공
+		Board board = new Board();
+		board.setBoardTitle(boardTitle);
+		board.setBoardContent(boardContent);
+		board.setUserId(userId);
+		String createDate = new SimpleDateFormat("yyyy년 MM월 dd일 hh시 mm분 ss초").format(new Date());
+		board.setCreateDate(createDate);
+		
+		// 2. 요청처리
+		// ~
+		board.add(board);
 	
+	public List<Board> selectBoardList() {
+		
+		
+		return boards;
+	}
+	}
 
 }
